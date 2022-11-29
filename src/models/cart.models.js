@@ -4,10 +4,10 @@ const { DataTypes} = require("sequelize");
 
 const cart = db.define("cart",{
     id: {
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
     },
     userId:{
         type: DataTypes.INTEGER,
@@ -17,7 +17,7 @@ const cart = db.define("cart",{
     totalPrice:{
         type:DataTypes.INTEGER,
         field:"total_price",
-        allowNull:false
+        allowNull: false
     },
 
 })

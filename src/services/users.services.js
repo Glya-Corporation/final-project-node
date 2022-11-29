@@ -17,11 +17,11 @@ class UserServices {
         attributes: ["name"],
         include: {
           model: Order,
-          as: "Order",
+          as: "order",
           attributes: ["totalPrice"],
           include: {
             model: ProductsInOrder,
-            as: "Items",
+            as: "productOrder",
             attributes: ["productId", "quantity", "price"],
           }
 
@@ -40,16 +40,25 @@ class UserServices {
         attributes: ["name"],
         include: {
           model: Cart,
-          as: "Cart",
+          as: "cart",
           attributes: ["totalPrice"],
           include: {
             model: ProductsInCart,
-            as: "Product",
+            as: "products",
             attributes: ["productId", "quantity", "price"],
           }
         }
       })
       return result
+    } catch (error) {
+      throw (error)
+    }
+  }
+
+  static async addProduct(product) {
+    try {
+      const result = await ProductsInCart.create(product);
+      return result;
     } catch (error) {
       throw (error)
     }

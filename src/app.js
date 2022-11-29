@@ -4,6 +4,9 @@ const cors = require('cors');
 const db = require('./utils/database');
 const hendleError = require('./middlewares/error.middleware');
 const initModels = require('./models/initModels');
+const User = require('./routes/users.routes');
+const AuthLogin = require('./routes/auth.routes');
+const CartRoutes = require('./routes/cart.routes');
 
 const app = express();
 
@@ -17,13 +20,17 @@ db.authenticate()
     .then(() => console.log('Authenticate complete'))
     .catch(error => console.log(error)) 
     
-db.sync({ force: true })
+db.sync({ force: false })
     .then(() => console.log('Synchronized database'))
     .catch(error => console.log(error));
 
 app.get('/', (req, res) => {
     console.log('Bienvenido al server');
 });
+
+app.use('/api/v1', User);
+app.use('/api/v1', AuthLogin);
+app.use('/api/v1', CartRoutes);
 
 app.use(hendleError);
 

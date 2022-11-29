@@ -40,11 +40,26 @@ const userCart = async (req, res, next) => {
       message: "",
     });
   }
+};
+
+const addProduct = async (req, res, next) => {
+  try {
+    const product = req.body;
+    const result = await UserServices.addProduct(product);
+    res.status(201).json(result);
+  } catch (error) {
+    next({
+      status: 400,
+      errorContent: error,
+      message: "",
+    });
+  }
 }
 
 
 module.exports = {
   userRegister,
   userOrders,
-  userCart
+  userCart,
+  addProduct
 };

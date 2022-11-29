@@ -26,9 +26,9 @@ const carts = [
 ]
 
 const order = [
-    {totalPrice:0, userId:1},
-    {totalPrice:0, userId:2},
-    {totalPrice:0, userId:3},
+    {totalPrice:0, userId:1, status: 'hola'},
+    {totalPrice:0, userId:2, status: 'hola'},
+    {totalPrice:0, userId:3, status: 'hola'},
 ]
 
 const pic = [
@@ -50,21 +50,22 @@ const pio = [
 db.sync({ force: true })
     .then(() => {
         console.log("Iniciando la plantación de Información");
-        users.forEach((user) => Users.create(user))
+        users.forEach((user) => Users.create(user));
+
         setTimeout(() => {
             products.forEach((products) => Products.create(products));
-          }, 100);
-          setTimeout(() => {
-            carts.forEach((carts) => Cart.create(carts));
-          }, 200);
-          setTimeout(() => {
-            order.forEach((order) => Order.create(order));
           }, 300);
           setTimeout(() => {
-            pic.forEach((pic) => ProductsInCart.create(pic));
+            carts.forEach((carts) => Cart.create(carts));
           }, 400);
           setTimeout(() => {
-            pio.forEach((pio) => ProductsInOrder.create(pio));
+            order.forEach((order) => Order.create(order));
           }, 500);
+          /* setTimeout(() => {
+            pic.forEach((pic) => ProductsInCart.create(pic));
+          }, 600);
+          setTimeout(() => {
+            pio.forEach((pio) => ProductsInOrder.create(pio));
+          }, 700); */
     })
     .catch((error) => console.log(error));
