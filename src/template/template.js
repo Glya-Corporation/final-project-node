@@ -119,7 +119,7 @@ const template = (name, code) => {
 <table border="0" cellpadding="0" cellspacing="0" class="image_block block-2" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
 <tr>
 <td class="pad" style="width:100%;padding-right:0px;padding-left:0px;padding-top:25px;padding-bottom:25px;">
-<div align="left" class="alignment" style="line-height:10px"><img alt="Image" src="images/lindo-logo-carrito-compras_23-2148453859.png" style="display: block; height: auto; border: 0; width: 135px; max-width: 100%;" title="Image" width="135"/></div>
+<div align="left" class="alignment" style="line-height:10px"><img alt="Image" src="https://github.com/Glya-Corporation/final-project-node/blob/main/src/template/images/lindo-logo-carrito-compras_23-2148453859.png?raw=true" style="display: block; height: auto; border: 0; width: 135px; max-width: 100%;" title="Image" width="135"/></div>
 </td>
 </tr>
 </table>
@@ -151,7 +151,7 @@ const template = (name, code) => {
 <table border="0" cellpadding="0" cellspacing="0" class="image_block block-1" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
 <tr>
 <td class="pad" style="padding-top:45px;width:100%;padding-right:0px;padding-left:0px;">
-<div align="center" class="alignment" style="line-height:10px"><img alt="Image" class="big" src="images/illo_welcome_1.png" style="display: block; height: auto; border: 0; width: 540px; max-width: 100%;" title="Image" width="540"/></div>
+<div align="center" class="alignment" style="line-height:10px"><img alt="Image" class="big" src="https://github.com/Glya-Corporation/final-project-node/blob/main/src/template/images/illo_welcome_1.png?raw=true" style="display: block; height: auto; border: 0; width: 540px; max-width: 100%;" title="Image" width="540"/></div>
 </td>
 </tr>
 </table>
@@ -265,7 +265,7 @@ const template = (name, code) => {
 <table cellpadding="0" cellspacing="0" class="icons-inner" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; display: inline-block; margin-right: -4px; padding-left: 0px; padding-right: 0px;">
 <!--<![endif]-->
 <tr>
-<td style="vertical-align: middle; text-align: center; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 6px;"><a href="https://www.designedwithbee.com/" style="text-decoration: none;" target="_blank"><img align="center" alt="Designed with BEE" class="icon" height="32" src="images/bee.png" style="display: block; height: auto; margin: 0 auto; border: 0;" width="34"/></a></td>
+<td style="vertical-align: middle; text-align: center; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 6px;"><a href="https://www.designedwithbee.com/" style="text-decoration: none;" target="_blank"><img align="center" alt="Designed with BEE" class="icon" height="32" src="https://github.com/Glya-Corporation/final-project-node/blob/main/src/template/images/bee.png?raw=true" style="display: block; height: auto; margin: 0 auto; border: 0;" width="34"/></a></td>
 <td style="font-family: Lato, Tahoma, Verdana, Segoe, sans-serif; font-size: 15px; color: #9d9d9d; vertical-align: middle; letter-spacing: undefined; text-align: center;"><a href="https://www.designedwithbee.com/" style="color: #9d9d9d; text-decoration: none;" target="_blank">Designed with BEE</a></td>
 </tr>
 </table>
