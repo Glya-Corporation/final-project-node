@@ -6,6 +6,7 @@ const hendleError = require('./middlewares/error.middleware');
 const initModels = require('./models/initModels');
 const User = require('./routes/users.routes');
 const AuthLogin = require('./routes/auth.routes');
+const transporter = require('./utils/mailer');
 
 const app = express();
 
@@ -21,6 +22,10 @@ db.authenticate()
     
 db.sync({ force: false })
     .then(() => console.log('Synchronized database'))
+    .catch(error => console.log(error));
+
+transporter.verify()
+    .then(() => console.log('listo para enviar correos'))
     .catch(error => console.log(error));
 
 app.get('/', (req, res) => {

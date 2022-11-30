@@ -1,5 +1,6 @@
 const { UserServices } = require("../services");
-const { transporter } = require("../utils/mailer");
+const template = require("../template/template");
+const transporter = require('../utils/mailer');
 
 const userRegister = async (req, res, next) => {
   try {
@@ -8,20 +9,20 @@ const userRegister = async (req, res, next) => {
     const { userCreated, cart } = dataCreated;
     const result = { userCreated: userCreated, cart: cart };
     res.status(201).json(result);
+    console.log(userCreated);
     transporter.sendMail({
       from: "<alfonsouzcategui2@gmail.com>",
       to: userCreated.email,
       subject: "Bienvenido a mi Ecommerce",
       text: `¡Hola! ${userCreated.name} bienvenido a la mejor aplicacion de mensajería jamás antes vista`,
-      html: `<h1>¡Hola! ${userCreated.name} bienvenido a la mejor aplicacion de mensajería jamás antes vista</h1>`
+      html: template(userCreated.name, userCreated.codeVerifi)
     });
   } catch (error) {
-    console.log(error)
-    /* next({
+    next({
       status: 400,
       errorContent: error,
-      message: "Faltan datos",
-    }); */
+      message: "Algo salio mal",
+    });
   }
 };
 

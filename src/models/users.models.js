@@ -1,9 +1,8 @@
 const db = require("../utils/database");
-
 const {DataTypes} = require("sequelize");
-
 const bcrypt = require("bcrypt");
 
+const code = () => Math.ceil(Math.random() * 999999);
 
 const users = db.define("users",{
     id: {
@@ -27,6 +26,15 @@ const users = db.define("users",{
     password: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    status: {
+      type: DataTypes.STRING,
+      defaultValue: 'unverified'
+    },
+    codeVerifi: {
+      type: DataTypes.INTEGER,
+      defaultValue: code(),
+      field: 'code_verifi'
     }
 },
 {
