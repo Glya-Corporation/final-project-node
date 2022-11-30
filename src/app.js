@@ -6,7 +6,6 @@ const hendleError = require('./middlewares/error.middleware');
 const initModels = require('./models/initModels');
 const User = require('./routes/users.routes');
 const AuthLogin = require('./routes/auth.routes');
-const CartRoutes = require('./routes/cart.routes');
 
 const app = express();
 
@@ -30,7 +29,6 @@ app.get('/', (req, res) => {
 
 app.use('/api/v1', User);
 app.use('/api/v1', AuthLogin);
-app.use('/api/v1', CartRoutes);
 
 app.use(hendleError);
 

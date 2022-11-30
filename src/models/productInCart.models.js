@@ -1,6 +1,4 @@
 const db = require("../utils/database");
-const products = require("./products.models");
-const cart = require("./cart.models");
 const { DataTypes } = require("sequelize");
 
 const productsInCart = db.define("productsInCart", {
@@ -31,7 +29,7 @@ const productsInCart = db.define("productsInCart", {
     status: {
         type: DataTypes.STRING,
         allowNull: false
-    }
+    },
 
 })
 

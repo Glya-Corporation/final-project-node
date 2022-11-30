@@ -1,15 +1,14 @@
-const { Cart } = require("../models");
+const {Cart} = require("../models");
 
-class CartServices {
-    static async create(newCart) {
+class cartServices{
+    static async create(newCart){
         try {
-            const result = await Cart.create(newCart);
-            console.log('result')
-            return result;
+           const result = await Cart.create(newCart);
+           return result; 
         } catch (error) {
-            throw error;
+            throw(error);
         }
     }
 }
 
-module.exports = CartServices;
+module.exports = cartServices;
