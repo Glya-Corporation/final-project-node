@@ -39,7 +39,7 @@ app.use(hendleError);
 
 module.exports = app;
 
-//npm i express sequelize pg pg-hstore dotenv jsonwebtoken bcrypt cors
+//npm i express sequelize pg pg-hstore dotenv jsonwebtoken bcrypt cors nodemeiler
 
-//npm i nodemon morgan -D
+//npm i nodemon morgan jest -D
 

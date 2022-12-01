@@ -1,5 +1,5 @@
 const { UserServices } = require("../services");
-const template = require("../template/template");
+const { template, template2 } = require("../template/index");
 const transporter = require('../utils/mailer');
 
 const userRegister = async (req, res, next) => {
@@ -12,8 +12,8 @@ const userRegister = async (req, res, next) => {
     transporter.sendMail({
       from: "<alfonsouzcategui2@gmail.com>",
       to: userCreated.email,
-      subject: "Bienvenido a mi Ecommerce",
-      text: `¡Hola! ${userCreated.name} bienvenido a la mejor aplicacion de mensajería jamás antes vista`,
+      subject: "Welcome to my store",
+      text: `¡Hello! ${userCreated.name} this is your verification code: ${userCreated.codeVerify}`,
       html: template(userCreated.name, userCreated.codeVerify)
     });
   } catch (error) {
@@ -70,14 +70,24 @@ const addProductToCart = async (req, res, next) => {
 const purchaseCart = async (req, res, next) => {
   try {
     const { cartId } = req.body;
+    const id = req.params.id;
+    const user = await UserServices.getPurchaseCart(id);
+    transporter.sendMail({
+      from: "<alfonsouzcategui2@gmail.com>",
+      to: user.email,
+      subject: "Successful purchase",
+      text: `¡hi! ${user.name} It looks like you have made a successful purchase. I will show you the products you bought`,
+      html: template2(user)
+    });
     const result = await UserServices.purchaseCart(cartId);
-    res.status(200).json(result)
+    res.status(200).json(result);
   } catch (error) {
-    next({
+    console.log(error)
+    /* next({
       status: 400,
       errorContent: error,
       message: "",
-    });
+    }); */
   }
 }
 

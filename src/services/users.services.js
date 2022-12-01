@@ -19,7 +19,7 @@ class UserServices {
         where: { id },
         attributes: ["codeVerify"]
       });
-      if( code === result.dataValues.codeVerify){
+      if (code === result.dataValues.codeVerify) {
         const userVerified = await Users.update({ status: "verified" }, {
           where: { id }
         })
@@ -66,9 +66,9 @@ class UserServices {
           attributes: ["totalPrice", "status"],
           include: {
             model: ProductsInCart,
-            where: {status: 'in queue'},
+            where: { status: 'in queue' },
             as: "products",
-            attributes: ["productId", "quantity", "price", "status"],
+            attributes: ["productId", "quantity", "price", "status"]
           }
         }
       })
@@ -104,7 +104,33 @@ class UserServices {
       throw (error);
     }
   }
-
+  static async getPurchaseCart(id) {
+    try {
+      const user = await Users.findOne({
+        where: { id },
+        attributes: ["name", "email"],
+        include: {
+          model: Cart,
+          as: "cart",
+          attributes: ["totalPrice", "status"],
+          include: {
+            model: ProductsInCart,
+            where: { status: 'in queue' },
+            as: "products",
+            attributes: ["productId", "quantity", "price", "status"],
+            include: {
+              model: Products,
+              as: "item",
+              attributes: ["name"]
+            }
+          }
+        }
+      })
+      return user;
+    } catch (error) {
+      throw (error);
+    }
+  }
   static async purchaseCart(cartId) {
     try {
       const result = await ProductsInCart.update({ status: "purchased" }, {
@@ -117,7 +143,7 @@ class UserServices {
           id: Number(cartId)
         }
       });
-      return result, cart;
+      return { result, cart};
     } catch (error) {
       throw (error);
     }

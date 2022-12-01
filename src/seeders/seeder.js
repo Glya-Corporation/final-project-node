@@ -5,7 +5,7 @@ const { Cart, ProductsInCart, Order, Products, ProductsInOrder, Users } = requir
 initModels();
 
 const users = [
-    { name: "Evelio", email: "eve@gmail.com", password: "123123" },
+    { name: "Luis Uzcategui", email: "alfonsouzcategui26@gmail.com", password: "123123" },
     { name: "Romario", email: "rom@gmail.com", password: "456456" },
     { name: "Josefina", email: "jose@gmail.com", password: "789789" },
 ]
@@ -20,9 +20,9 @@ const products = [
 ]
 
 const carts = [
-    {userId:1, totalPrice:0, status:"empty"},
-    {userId:2, totalPrice:0, status:"empty"},
-    {userId:3, totalPrice:0, status:"empty"}
+    {userId:1, totalPrice:68, status:"empty"},
+    {userId:2, totalPrice:56, status:"empty"},
+    {userId:3, totalPrice:30, status:"empty"}
 ]
 
 const order = [
