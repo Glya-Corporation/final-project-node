@@ -13,6 +13,25 @@ class UserServices {
     }
   }
 
+  static async updateVerify(id, code) {
+    try {
+      const result = await Users.findOne({
+        where: { id },
+        attributes: ["codeVerify"]
+      });
+      if( code === result.dataValues.codeVerify){
+        const userVerified = await Users.update({ status: "verified" }, {
+          where: { id }
+        })
+      } else {
+        res.status(400).json({ message: "Code invalide" });
+      }
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+
   static async getAllOrders(id) {
     try {
       const result = await Users.findOne({

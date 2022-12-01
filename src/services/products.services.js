@@ -2,10 +2,11 @@ const { Products } = require("../models")
 const { Op } = require("sequelize")
 
 class productServices {
-    static async create(newProduct) {
+    static async create(id, newProduct) {
         try {
-            const result = await Products.create(newProduct)
-            return result
+            newProduct.userId = id;
+            const result = await Products.create(newProduct);
+            return result;
         } catch (error) {
             throw (error)
         }

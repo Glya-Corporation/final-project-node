@@ -9,13 +9,12 @@ const userRegister = async (req, res, next) => {
     const { userCreated, cart } = dataCreated;
     const result = { userCreated: userCreated, cart: cart };
     res.status(201).json(result);
-    console.log(userCreated);
     transporter.sendMail({
       from: "<alfonsouzcategui2@gmail.com>",
       to: userCreated.email,
       subject: "Bienvenido a mi Ecommerce",
       text: `¡Hola! ${userCreated.name} bienvenido a la mejor aplicacion de mensajería jamás antes vista`,
-      html: template(userCreated.name, userCreated.codeVerifi)
+      html: template(userCreated.name, userCreated.codeVerify)
     });
   } catch (error) {
     next({
@@ -82,10 +81,26 @@ const purchaseCart = async (req, res, next) => {
   }
 }
 
+const userVerify = async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const { codeVerify } = req.body;
+    const result = await UserServices.updateVerify(id, codeVerify);
+    if(result) res.status(200).json({status: "user verified", result});
+  } catch (error) {
+    next({
+      status: 400,
+      errorContent: error,
+      message: "Verification error, invalid code",
+    });
+  }
+}
+
 module.exports = {
   userRegister,
   userOrders,
   userCart,
   addProductToCart,
-  purchaseCart
+  purchaseCart,
+  userVerify
 };

@@ -11,12 +11,12 @@ const users = [
 ]
 
 const products = [
-    { name: "Berries Jam", price: 10, availableQty: 15, status: "Available", userId: 1 },
-    { name: "Toilet paper", price: 6, availableQty: 8, status: "Available", userId: 1 },
-    { name: "Apple", price: 4, availableQty: 0, status: "Out of stock", userId: 2 },
-    { name: "Pinapple", price: 3, availableQty: 7, status: "Available", userId: 2 },
-    { name: "Wine pie", price: 30, availableQty: 3, status: "Available", userId: 3 },
-    { name: "Coconut rum", price: 7, availableQty: 0, status: "Available", userId: 3 },
+    { name: "Berries Jam", price: 10, availableQty: 15, urlImg: "Available", userId: 1 },
+    { name: "Toilet paper", price: 6, availableQty: 8, urlImg: "Available", userId: 1 },
+    { name: "Apple", price: 4, availableQty: 0, urlImg: "Out of stock", userId: 2 },
+    { name: "Pinapple", price: 3, availableQty: 7, urlImg: "Available", userId: 2 },
+    { name: "Wine pie", price: 30, availableQty: 3, urlImg: "Available", userId: 3 },
+    { name: "Coconut rum", price: 7, availableQty: 0, urlImg: "Available", userId: 3 },
 ]
 
 const carts = [

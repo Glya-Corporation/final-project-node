@@ -4,8 +4,7 @@ const cors = require('cors');
 const db = require('./utils/database');
 const hendleError = require('./middlewares/error.middleware');
 const initModels = require('./models/initModels');
-const User = require('./routes/users.routes');
-const AuthLogin = require('./routes/auth.routes');
+const { userRoutes, authRoutes, productRoutes} = require("./routes");
 const transporter = require('./utils/mailer');
 
 const app = express();
@@ -32,8 +31,9 @@ app.get('/', (req, res) => {
     console.log('Bienvenido al server');
 });
 
-app.use('/api/v1', User);
-app.use('/api/v1', AuthLogin);
+app.use("/api/v1", userRoutes);
+app.use("/api/v1", authRoutes);
+app.use("/api/v1", productRoutes);
 
 app.use(hendleError);
 

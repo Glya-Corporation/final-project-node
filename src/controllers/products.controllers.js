@@ -2,8 +2,9 @@ const { ProductServices } = require("../services");
 
 const createProduct = async (req, res, next) => {
     try {
+        const id = req.params.id;
         const newProduct = req.body;
-        const result = await ProductServices.create(newProduct);
+        const result = await ProductServices.create(id, newProduct);
         res.status(201).json(result);
     } catch (error) {
         next({

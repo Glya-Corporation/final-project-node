@@ -2,7 +2,40 @@ const db = require("../utils/database");
 const {DataTypes} = require("sequelize");
 const bcrypt = require("bcrypt");
 
-const code = () => Math.ceil(Math.random() * 999999);
+const code = () => Math.ceil( Math.random() * 999999 );
+
+/**
+ * @openapi
+ *  components:
+ *   schemas:
+ *     Users:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: integer
+ *           example: 1
+ *         name:
+ *           type: string
+ *           example: example
+ *         email:
+ *           type: string
+ *           example: example@gmail.com
+ *         password:
+ *           type: string
+ *           example: 123123
+ *     Register:
+ *      type: object
+ *      properties:
+ *       name:
+ *        type: string
+ *        example: example
+ *       email:
+ *        type: string
+ *        example: example@gmail.com
+ *       password:
+ *        type: string
+ *        example: 123123
+ */
 
 const users = db.define("users",{
     id: {
@@ -31,10 +64,10 @@ const users = db.define("users",{
       type: DataTypes.STRING,
       defaultValue: 'unverified'
     },
-    codeVerifi: {
+    codeVerify: {
       type: DataTypes.INTEGER,
       defaultValue: code(),
-      field: 'code_verifi'
+      field: 'code_verify'
     }
 },
 {
