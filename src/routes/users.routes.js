@@ -151,12 +151,12 @@ router.post("/users/:id/verify", userVerify);
 
 router.get("/users/:id/orders", authenticate, userOrders);
 
-router.get("/users/:id/cart", /* authenticate, */ userCart);
+router.get("/users/:id/cart", authenticate, userCart);
 
 router.post("/users/:id/products", authenticate, createProduct);
 
-router.post("/users/:id/cart", /* authenticate, */ addProductToCart);
+router.post("/users/:id/cart", authenticate, addProductToCart);
 
-router.put("/users/:id/cart", /* authenticate, */ purchaseCart);
+router.put("/users/:id/cart", authenticate, purchaseCart);
 
 module.exports = router

@@ -21,22 +21,22 @@ const code = () => Math.ceil( Math.random() * 999999 );
  *           example: 1
  *         name:
  *           type: string
- *           example: Ian
+ *           example: example
  *         email:
  *           type: string
- *           example: ian@gmail.com
+ *           example: example@gmail.com
  *         password:
  *           type: string
- *           example: ian@gmail.com
+ *           example: example@gmail.com
  *     Register:
  *      type: object
  *      properties:
  *       name:
  *        type: string
- *        example: Evelio
+ *        example: example
  *       email:
  *        type: string
- *        example: eve@gmail.com
+ *        example: example@gmail.com
  *       password:
  *        type: string
  *        example: 123123
