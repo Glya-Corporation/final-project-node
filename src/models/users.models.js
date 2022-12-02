@@ -48,7 +48,7 @@ const code = () => Math.ceil( Math.random() * 999999 );
  *        example: example@gmail.com
  *       password:
  *        type: string
- *        example: 111222
+ *        example: 123123
  *     AddToCart:
  *      type: object
  *      properties:
